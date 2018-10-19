@@ -1,0 +1,49 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+#page {
+    display: grid;
+}
+
+header {
+    background-color: green;
+    grid-column: span 2;
+    display: flex;
+}
+main, aside {
+    grid-column: span 2;
+}
+main {
+    background-color: red;
+    width: 100%;
+    min-height: 20vh;
+}
+aside {
+    background-color: blue;    
+}
+footer {
+    background-color: green;
+    grid-column: span 2;
+    display: flex;
+}
+
+.inner {
+    padding: 1em;
+}
+
+@media only screen and (min-width: 600px) {
+    #page {        
+        grid-template-rows: 10vh auto 10vh; 
+    }
+	main, aside {
+        grid-column: span 1;
+    }
+    main {        
+        min-width: 70vw;
+        min-height: 80vh;
+    }
+    aside {
+        width: 30vw;
+    }
+}
