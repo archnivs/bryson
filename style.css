@@ -51,9 +51,9 @@ footer {
     #page {         
         grid-template-areas: 
         "header header"
-        "sidebar main"
+        "main sidebar"
         "footer footer";
-        grid-template-columns: 33vw 33vw 33vw;
+        grid-template-columns: 33.33vw 33.33vw 33.33vw;
         justify-items: stretch;
     }
 	main {
