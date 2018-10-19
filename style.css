@@ -7,28 +7,37 @@ html, body {
 }
 #page {
     display: grid;
+    grid-template-areas: 
+        "header"
+        "main"
+        "sidebar"
+        "footer";
 }
 
 header {
-    box-shadow: inset 0 0 0 green;
-    grid-column: span 2;
+    box-shadow: inset 0 0 1px green;
+    grid-column: span 1;
     display: flex;
+    grid-area: header;
 }
 main, aside {
-    grid-column: span 2;
+    grid-column: span 1;
 }
 main {
-    box-shadow: inset 0 0 0 red;
+    box-shadow: inset 0 0 1px red;
     width: 100%;
     min-height: 20vh;
+    grid-area: main;
 }
 aside {
-    box-shadow: inset 0 0 0 blue;    
+    box-shadow: inset 0 0 1px blue;
+    grid-area: sidebar;    
 }
 footer {
-    box-shadow: inset 0 0 0 green;
-    grid-column: span 2;
+    box-shadow: inset 0 0 1px green;
+    grid-column: span 1;
     display: flex;
+    grid-area: footer;
 }
 
 .inner {
@@ -38,9 +47,16 @@ footer {
 @media only screen and (min-width: 600px) {
     #page {        
         grid-template-rows: 10vh auto 10vh; 
+        grid-template-areas: 
+        "header header"
+        "sidebar main"
+        "footer footer";
     }
 	main, aside {
         grid-column: span 1;
+    }
+    footer, header {
+        grid-column: span 2;
     }
     main {        
         min-width: 70vw;
