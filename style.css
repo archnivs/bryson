@@ -4,9 +4,12 @@
 html, body {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 #page {
     display: grid;
+    grid-template-rows: minmax(10vh, auto) minmax(80vh, auto) minmax(10vh, auto);
+    grid-template-columns: 1fr;
     grid-template-areas: 
         "header"
         "main"
@@ -45,24 +48,31 @@ footer {
 }
 
 @media only screen and (min-width: 600px) {
-    #page {        
-        grid-template-rows: 10vh auto 10vh; 
+    #page {         
         grid-template-areas: 
         "header header"
         "sidebar main"
         "footer footer";
+        grid-template-columns: 33vw 33vw 33vw;
+        justify-items: stretch;
     }
-	main, aside {
+	main {
+        grid-column: span 2;
+        justify-self: start;
+    } 
+    aside {
         grid-column: span 1;
+        justify-self: end;
     }
     footer, header {
-        grid-column: span 2;
+        grid-column: span 3;
     }
-    main {        
-        min-width: 70vw;
-        min-height: 80vh;
-    }
+    /* main {        
+        max-width: 70vw;
+        width: 100%;
+    } */
     aside {
-        width: 30vw;
-    }
+        max-width: 34vw;
+        width: 100%;
+    } 
 }
