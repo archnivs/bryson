@@ -46,7 +46,14 @@ footer {
 .inner {
     padding: 1em;
 }
-
+#toggle-sidebar {
+    cursor: pointer;
+    font-size: 2em;
+    width: 1em;
+    height: 1em; 
+    display: block;
+    background-color: rgba(200,200,200,0.5);
+}
 #h-aside[data-state=closed] {
     display: none;
 }
