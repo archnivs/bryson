@@ -47,24 +47,33 @@ footer {
     padding: 1em;
 }
 
+#h-aside[data-state=closed] {
+    display: none;
+}
+#h-aside[data-state=open] {
+    display: inherit;
+}
+
 @media only screen and (min-width: 600px) {
     #page {         
         grid-template-areas: 
         "header header"
-        "main sidebar"
+        "sidebar main"
         "footer footer";
-        /* grid-template-columns: 66.66vw 33.33vw;  */
-        grid-template-columns: auto-fit 33.33vw; 
-        justify-items: stretch;
     }
 	main {        
-        justify-self: start;
+        justify-self: stretch;
+        width: 100vw;
     } 
     aside {
-        justify-self: end;
+        justify-self: start;
     }
     footer, header {
-        grid-column: span 12;
+        grid-column: span 2;
+    }
+
+    #h-aside {
+        width: 200px;
     }
    
 }
