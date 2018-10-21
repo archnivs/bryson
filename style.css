@@ -53,26 +53,18 @@ footer {
         "header header"
         "main sidebar"
         "footer footer";
-        grid-template-columns: 33.33vw 33.33vw 33.33vw;
+        /* grid-template-columns: 66.66vw 33.33vw;  */
+        grid-template-columns: auto-fit 33.33vw; 
         justify-items: stretch;
     }
-	main {
-        grid-column: span 2;
+	main {        
         justify-self: start;
     } 
     aside {
-        grid-column: span 1;
         justify-self: end;
     }
     footer, header {
-        grid-column: span 3;
+        grid-column: span 12;
     }
-    /* main {        
-        max-width: 70vw;
-        width: 100%;
-    } */
-    aside {
-        max-width: 34vw;
-        width: 100%;
-    } 
+   
 }
