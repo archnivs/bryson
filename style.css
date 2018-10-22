@@ -12,8 +12,8 @@ html, body {
     grid-template-columns: 1fr;
     grid-template-areas: 
         "header"
-        "main"
         "sidebar"
+        "main"
         "footer";
 }
 
@@ -39,11 +39,44 @@ html, body {
 .inner {
     padding: 1em;
 }
+
+.h-flex {
+    display: flex;
+    justify-content: start;
+}
+
+.h-flex-child {
+    margin-right: 6px;
+    flex-shrink: 1;
+    align-self: center;
+    /* flex-basis: auto; */
+    margin: auto;
+}
+.h-flex-child.toggle-wrapper {
+    align-self: flex-start;
+    width: 60px;
+}
+.h-flex-child.logo-wrapper {
+    align-self: start;
+    max-width: 200px;
+    width: 100%;
+
+}
+.h-flex-child.spacer-wrapper {
+    flex-grow: 2;
+}
+.h-flex-child.avatar-wrapper {
+    align-self: flex-end;
+    flex-grow: 1;
+    text-align: left;
+}
+
 #toggle-sidebar {
     cursor: pointer;
     font-size: 2em;
     width: 1em;
     height: 1em; 
+    padding: 3px;
     display: block;
     background-color: rgba(200,200,200,0.5);
 }
