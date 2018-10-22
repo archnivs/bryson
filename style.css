@@ -8,7 +8,7 @@ html, body {
 }
 #page {
     display: grid;
-    grid-template-rows: minmax(10vh, auto) minmax(80vh, auto) minmax(10vh, auto);
+    grid-template-rows: minmax(10vh, auto) minmax(80vh, auto) auto;
     grid-template-columns: 1fr;
     grid-template-areas: 
         "header"
@@ -17,29 +17,22 @@ html, body {
         "footer";
 }
 
-header {
-    box-shadow: inset 0 0 1px green;
+#h-main, #h-aside {
     grid-column: span 1;
-    display: flex;
+}
+#h-header {
     grid-area: header;
 }
-main, aside {
-    grid-column: span 1;
-}
-main {
-    box-shadow: inset 0 0 1px red;
-    width: 100%;
-    min-height: 20vh;
+#h-main {    
+    box-shadow: inset 0 0 2px green;
     grid-area: main;
 }
-aside {
-    box-shadow: inset 0 0 1px blue;
+#h-aside {
+    box-shadow: inset 0 0 2px blue;
     grid-area: sidebar;    
 }
-footer {
-    box-shadow: inset 0 0 1px green;
-    grid-column: span 1;
-    display: flex;
+#h-footer {
+    box-shadow: inset 0 0 2px red;
     grid-area: footer;
 }
 
@@ -54,6 +47,11 @@ footer {
     display: block;
     background-color: rgba(200,200,200,0.5);
 }
+
+#h-aside, #h-header {
+    background-color: #6a6a6a;
+}
+
 #h-aside[data-state=closed] {
     display: none;
 }
@@ -66,21 +64,25 @@ footer {
         grid-template-areas: 
         "header header"
         "sidebar main"
-        "footer footer";
+        "sidebar footer";
     }
-	main {        
+	#h-main {        
         justify-self: stretch;
         width: 100vw;
+        min-height: 80vh;
     } 
-    aside {
-        justify-self: start;
+    #h-aside {
+        justify-self: start; 
+        min-height: 80vh;
     }
-    footer, header {
+    #h-header {
         grid-column: span 2;
     }
-
-    #h-aside {
-        width: 200px;
+    #h-aside .inner {
+        padding: 1em 6px;
+    }
+    .aside-content {
+        width: 160px;
     }
    
 }
