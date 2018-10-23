@@ -13,7 +13,11 @@ const calcTemplate = () => {
     let inp = document.createElement('div')
 
     inp.className = 'input-display'
-    inp.style.cssText = "padding:0.5em 1em;border:1px solid rgba(100,100,100,0.5);display:inline-block;"
+    inp.style.cssText = "padding:0.5em 1em;"
+    inp.style.cssText += "border:1px solid rgba(100,100,100,0.5);"
+    inp.style.cssText += "display:block;"
+    inp.style.cssText += "width: 300px;"
+    inp.style.cssText += "text-align: right;"
     inp.textContent = "0"
 
     temp.appendChild(inp)
