@@ -55,6 +55,9 @@ html, body {
     padding: 0;
     overflow-x: hidden;
 }
+strong {
+    font-weight: bold;
+}
 #page {
     display: grid;
     grid-template-rows: minmax(10vh, auto) minmax(80vh, auto) auto;
@@ -73,6 +76,7 @@ html, body {
     grid-area: header;
 }
 #h-main {    
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     box-shadow: inset 0 0 2px green;
     grid-area: main;
 }
@@ -167,4 +171,17 @@ html, body {
         width: 160px;
     }
    
+}
+
+.monster-tamer h3 {
+    font-size: 32px;
+    color: red;
+    margin: 24px 0 12px;
+    text-transform: capitalize;
+}
+.monster-count:before {
+    content: "Army count: ";
+}
+.monster-count {
+    font-size: 60%;
 }

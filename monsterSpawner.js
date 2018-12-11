@@ -6,13 +6,65 @@ const RandomItem = array => {
     return array[randomIndex]
 }
 
-const spawnMonster = () => {
-    const dsize = ['extra-small', 'small', 'large', 'humongous']
-    const dtype = ['ice', 'fire', 'lightning', 'earth', 'storm', 'wood']
-    const dmonster = ['dragon', 'cyclop', 'orc', 'ghoul', 'imp', 'pixy']
+const MonsterTamers = [
+        'techno', 
+        'shan', 
+        'solar', 
+        'pitch', 
+        'gon', 
+        'chaden'
+]
 
-    return RandomItem(dsize) + ' ' + RandomItem(dtype) + ' ' + RandomItem(dmonster)
+const spawnMonster = () => {
+
+    const dsize = [
+        'small', 
+        'normal', 
+        'large'
+    ]
+
+    const dtype = [
+        'ice', 
+        'fire', 
+        'lightning', 
+        'earth', 
+        'storm', 
+        'wood', 
+        'air' , 
+        'crystal', 
+        'shadow', 
+        'light',
+        'ice'
+    ]
+
+    const dmonster = [
+        'dragon', 
+        'cyclop', 
+        'orc', 
+        'ghoul', 
+        'imp', 
+        'seraph', 
+        'goblin', 
+        'kizen', 
+        'mermaid', 
+        'centaur', 
+        'gremlin', 
+        'banshee', 
+        'manticore', 
+        'demon',
+        'basilisk',
+        'vampire'
+    ]
+
+    let tamer = RandomItem(MonsterTamers)
+
+    return {
+        tamer,
+        monster: RandomItem(dsize) + ' ' + RandomItem(dtype)  + ' ' + RandomItem(dmonster) 
+    }
+            
 }
+
 
 let spawnMonsters = {
     [Symbol.iterator]: () => {
@@ -35,14 +87,40 @@ let spawnMonsters = {
 let spawnTheArmy = () => {
 
     const battleFieldDOM = document.getElementById("MonsterArmy")   
-    battleFieldDOM.innerHTML = '';
+    battleFieldDOM.innerHTML = ''; 
 
-    for (const monster of spawnMonsters) {
-        let v = document.createElement("p") 
-        v.textContent = monster
+    for ( const tamer of MonsterTamers) {
         
-        battleFieldDOM.appendChild(v)
+        let tamerDOM = document.createElement('div')
+        tamerDOM.className = "monster-tamer"
+        tamerDOM.setAttribute("id", "tamer-" + tamer)
+        tamerDOM.innerHTML = "<h3>" + tamer + " <br><span class='monster-count'>0</span></h3>"
+        battleFieldDOM.appendChild(tamerDOM)
+
     }
 
+    for (const spawn of spawnMonsters) {
+        
+        let tamer = document.getElementById("tamer-" + spawn.tamer)
+
+        let monster = document.createElement('p')
+
+        monster.innerText = spawn.monster
+
+        tamer.appendChild(monster)
+
+        battleFieldDOM.appendChild(tamer)
+
+    }
+      
+    let mt = document.getElementsByClassName("monster-tamer")
+
+    for (const m of mt ) {
+
+        let id = m.id
+        let t =  document.getElementById(id)
+        t.querySelector(".monster-count").innerText = t.getElementsByTagName("p").length
+
+    }
 }
-  
+
